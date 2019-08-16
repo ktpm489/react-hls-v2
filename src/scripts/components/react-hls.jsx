@@ -36,7 +36,7 @@ class ReactHls extends React.Component {
             this.hls.destroy();
         }
 
-        let { url, autoplay, hlsConfig } = this.props;
+        let { url, autoplay, hlsConfig, onError } = this.props;
         let { video : $video } = this.refs;
         let hls = new Hls(hlsConfig);
 
@@ -48,7 +48,7 @@ class ReactHls extends React.Component {
             }
         });
         hls.on(Hls.Events.ERROR, (e, data) => {
-            this.props.onError && this.props.onError(e, data)
+            onError && onError(e, data)
         }) 
 
         this.hls = hls;
@@ -92,7 +92,7 @@ ReactHls.defaultProps = {
     controls : true,
     width : 500,
     height : 375,
-    onError: () => {
+    onError: (e, data) => {
         return;
     }
 }
