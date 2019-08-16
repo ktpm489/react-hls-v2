@@ -47,8 +47,8 @@ class ReactHls extends React.Component {
                 $video.play();
             }
         });
-        hls.on(Hls.Events.ERROR, (e, data) => {
-        }) 
+        // hls.on(Hls.Events.ERROR, (e, data) => {
+        // }) 
 
         this.hls = hls;
     }
