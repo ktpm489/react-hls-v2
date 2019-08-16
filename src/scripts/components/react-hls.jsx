@@ -36,7 +36,7 @@ class ReactHls extends React.Component {
             this.hls.destroy();
         }
 
-        let { url, autoplay, hlsConfig, onError } = this.props;
+        let { url, autoplay, hlsConfig } = this.props;
         let { video : $video } = this.refs;
         let hls = new Hls(hlsConfig);
 
