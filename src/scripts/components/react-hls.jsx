@@ -48,7 +48,6 @@ class ReactHls extends React.Component {
             }
         });
         hls.on(Hls.Events.ERROR, (e, data) => {
-            onError && onError(e, data)
         }) 
 
         this.hls = hls;
@@ -82,8 +81,7 @@ ReactHls.propTypes = {
     width : PropTypes.number,
     height : PropTypes.number,
     poster : PropTypes.string,
-    videoProps : PropTypes.object,
-    onError: PropTypes.func,
+    videoProps : PropTypes.object
 }
 
 ReactHls.defaultProps = {
@@ -91,10 +89,7 @@ ReactHls.defaultProps = {
     hlsConfig : {},
     controls : true,
     width : 500,
-    height : 375,
-    onError: (e, data) => {
-        return;
-    }
+    height : 375
 }
 
 export default ReactHls;
