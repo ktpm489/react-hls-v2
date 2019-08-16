@@ -48,6 +48,7 @@ class Index extends React.Component {
 
     render () {
         let { hlsUrl, destroy } = this.state;
+
         return (
             <div>
                 <div className="url-input-area">
@@ -57,7 +58,7 @@ class Index extends React.Component {
                            onBlur={this._handleInputBlur}
                            onKeyUp={this._handleEnter}/>
                 </div>
-                {!destroy ? <Player url={hlsUrl} videoProps={{ loop : true }}  /> : null}
+                {!destroy ? <Player url={hlsUrl} videoProps={{ loop : true }} /> : null}
                 <br />
                 <button className="destroy-btn"
                         onClick={this._handleDestroyClick}>Destroy Video</button>
