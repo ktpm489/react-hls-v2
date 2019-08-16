@@ -91,8 +91,7 @@ ReactHls.defaultProps = {
     hlsConfig : {},
     controls : true,
     width : 500,
-    height : 375,
-    onError: null
+    height : 375
 }
 
 export default ReactHls;
