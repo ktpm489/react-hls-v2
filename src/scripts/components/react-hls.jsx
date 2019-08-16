@@ -47,6 +47,9 @@ class ReactHls extends React.Component {
                 $video.play();
             }
         });
+        hls.on(Hls.Events.ERROR, (e, data) => {
+            this.props.onError && this.props.onError(e, data)
+        }) 
 
         this.hls = hls;
     }
@@ -61,6 +64,7 @@ class ReactHls extends React.Component {
                        className="hls-player"
                        id={`react-hls-${playerId}`}
                        controls={controls}
+                       crossOrigin={'anonymous'}
                        width={width}
                        height={height}
                        poster={poster}
@@ -78,15 +82,17 @@ ReactHls.propTypes = {
     width : PropTypes.number,
     height : PropTypes.number,
     poster : PropTypes.string,
-    videoProps : PropTypes.object
+    videoProps : PropTypes.object,
+    onError: PropTypes.func,
 }
 
 ReactHls.defaultProps = {
-    autoplay : false,
+    autoplay : true,
     hlsConfig : {},
     controls : true,
     width : 500,
-    height : 375
+    height : 375,
+    onError: null
 }
 
 export default ReactHls;
