@@ -36,7 +36,7 @@ class ReactHls extends React.Component {
             this.hls.destroy();
         }
 
-        let { url, autoplay, hlsConfig , onError } = this.props;
+        let { url, autoplay, hlsConfig , onError, onSuccess } = this.props;
         let { video : $video } = this.refs;
         let hls = new Hls(hlsConfig);
 
@@ -45,6 +45,7 @@ class ReactHls extends React.Component {
         hls.on(Hls.Events.MANIFEST_PARSED, () => {
             if (autoplay) {
                 $video.play();
+                onSuccess && onSuccess(url)
             }
         });
 
@@ -83,7 +84,8 @@ ReactHls.propTypes = {
     height : PropTypes.number,
     poster : PropTypes.string,
     videoProps : PropTypes.object,
-    onError: PropTypes.func
+    onError: PropTypes.func,
+    onSuccess: PropTypes.func
 }
 
 ReactHls.defaultProps = {
@@ -93,6 +95,9 @@ ReactHls.defaultProps = {
     width : 500,
     height : 375,
     onError: (e,data) => {
+        return;
+    },
+    onSuccess : (url) => {
         return;
     }
 }
