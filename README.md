@@ -33,7 +33,7 @@ import ReactHLS from 'react-hls';
 
 - constrols `Boolean`
 
-    whether or not showing the playback controls default to `false`
+    whether or not showing the playback controls default to `true`
 
 - width `Number`
 
@@ -48,5 +48,11 @@ import ReactHLS from 'react-hls';
     `hls.js` config , you can see all config [here](https://github.com/dailymotion/hls.js/blob/master/doc/API.md#fine-tuning)
 
 - videoProps `Object`
+
+- onError `Function`
+   handle error when load url
+
+- onSuccess `Function`
+   handle success when load url
 
     All video tag attributes supported. You can check [all attributes here](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video)
