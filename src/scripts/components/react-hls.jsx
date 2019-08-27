@@ -67,6 +67,7 @@ class ReactHls extends React.Component {
                        id={`react-hls-${playerId}`}
                        controls={controls}
                        width={width}
+                       crossOrigin={'anonymous'}
                        height={height}
                        poster={poster}
                        {...videoProps}></video>
